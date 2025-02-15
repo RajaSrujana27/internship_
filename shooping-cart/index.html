@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onclick="closeCart(event)">
+
+    <nav>
+        <h1>Shopping Cart</h1>
+        <ul class="nav-links">
+            <li><a onclick="showSection('home')">Home</a></li>
+            <li><a onclick="showSection('products')">Products</a></li>
+            <li><a onclick="showSection('toys')">Toys</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart(event)">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <section id="home" class="section active">
+        <div class="banner">
+            <img src="Primespot.png" alt="Ad Banner">
+            <h2>Welcome to the Best Shopping Experience!</h2>
+        </div>
+        <div class="products-container" id="all-products">
+            <div class="product" data-category="products" data-id="1" data-name="Laptop" data-price="400" data-image="images/laptop.jpg">
+                <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/vostro-15-3520/media-gallery/black/notebook-vostro-15-3520-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&wid=4592&hei=2864&qlt=100,1&resMode=sharp2&size=4592,2864&chrss=full&imwidth=5000" alt="Laptop">
+                <h2> vostro-15-3520</h2>
+                <p>50% <strike>$800</strike>$400</p>
+                <button onclick="addToCart(1, 'DEll-vostro-15-3520', 400, 'images/laptop.jpg')">Add to Cart</button>
+            </div>
+            <div class="product" data-category="products" data-id="2" data-name="Mobile" data-price="899" data-image="images/mobile.jpg">
+                <img src="https://m.media-amazon.com/images/I/61JvFLHZ6NL._SX522_.jpg" alt="Mobile">
+                <h2>iPhone 16 Pro 256GB</h2>
+                <p>$899</p>
+                <button onclick="addToCart(2, 'iPhone 16Pro', 899, 'images/mobile.jpg')">Add to Cart</button>
+            </div>
+            <div class="product" data-category="products" data-id="3" data-name="Mobile" data-price="1299" data-image="images/mobile.jpg">
+                <img src="https://images.samsung.com/is/image/samsung/assets/in/offer/b2c-S25-Ultrea_Jetblack_560x560-280125.jpg?$560_560_JPG$" alt="Mobile">
+                <h2>Galaxy S25 Ultra</h2>
+                <p>$1,299</p>
+                <button onclick="addToCart(3, 'Galaxy S25 Ultra', 1299, 'images/mobile.jpg')">Add to Cart</button>
+            </div>
+            <div class="product" data-category="toys" data-id="4" data-name="Teddy Bear" data-price="50" data-image="images/teddy.jpg">
+                <img src="https://media-us.landmarkshops.in/cdn-cgi/image/h=1200,w=1200,q=85,fit=cover/max-new/1000013497108-Multi-MULTI-1000013497108_02-2100.jpg" alt="Teddy Bear">
+                <h2>Teddy Bear</h2>
+                <p>$50</p>
+                <button onclick="addToCart(4, 'Teddy Bear', 50, 'images/teddy.jpg')">Add to Cart</button>
+            </div>
+            <div class="product" data-category="toys" data-id="5" data-name="Teddy Bear" data-price="69" data-image="images/t0y.jpg">
+                <img src="https://bfasset.costco-static.com/U447IH35/as/mwtrtzjq7wmpgbrsg6r9n93/4000279978-847__1?auto=webp&format=jpg&width=350&height=350&fit=bounds&canvas=350,350" alt="Toys">
+                <h2>Bluey Friends and Family Beach Set</h2>
+                <p>$69</p>
+                <button onclick="addToCart(4, 'Bluey Friends and Family Beach Set', 69, 'images/teddy.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart">
+        <h2>Shopping Cart <span class="close-cart" onclick="toggleCart(event)">❌</span></h2>
+        <div id="cart-items"></div>
+        <button onclick="clearCart()">Empty Cart</button>
+        <h3>Total: $<span id="cart-total">0</span></h3>
+    </div>
+
+    <div id="message" class="message">Item added to cart!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
