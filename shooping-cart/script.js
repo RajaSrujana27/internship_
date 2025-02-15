@@ -44,7 +44,6 @@ function addToCart(id, name, price, image) {
             let li = document.createElement('li');
             li.classList.add('cart-item');
             li.innerHTML = `
-                <img src="images/${item.name.toLowerCase().replace(/\s+/g, '')}.jpg" alt="${item.name}" class="cart-item-image">
                 <div class="cart-item-details">
                     <p>${item.name} - $${item.price} x ${item.quantity}</p>
                     <button onclick="removeFromCart(${item.id})">Remove</button>
