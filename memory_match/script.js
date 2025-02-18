@@ -1,4 +1,4 @@
-// script.js
+
 const categories = {
   fruits: ["🍎", "🍌", "🍇", "🍊", "🍓", "🍍", "🥭", "🍒"],
   emojis: ["😀", "😎", "🤩", "😍", "🥳", "🤠", "😜", "😇"],
@@ -47,7 +47,7 @@ function startGame() {
   `).join("");
   cardsGrid.querySelectorAll(".card").forEach(card => card.addEventListener("click", handleCardClick));
   
-  // Show cards for 4 seconds
+
   cardsGrid.querySelectorAll(".card").forEach(card => card.classList.add("flipped"));
   
   setTimeout(() => {
@@ -137,5 +137,5 @@ restartButton.addEventListener("click", () => {
 });
 
 exitButton.addEventListener("click", () => {
-  window.close(); // This may not work in all browsers due to security restrictions
+  window.close(); 
 });
