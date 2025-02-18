@@ -76,13 +76,6 @@ function checkMatch() {
       card1.classList.add("matched");
       card2.classList.add("matched");
       matchedCards.push(card1, card2);
-      score += 10;
-      scoreDisplay.textContent = score;
-      document.getElementById("match-sound").play();
-
-      // Remove inline visibility styles, rely on CSS
-      card1.style.backgroundColor = "#4caf50";
-      card2.style.backgroundColor = "#4caf50";
 
       if (matchedCards.length === selectedCategory.length * 2) {
           endGame(true);
@@ -95,7 +88,7 @@ function checkMatch() {
 }
 
 
-function checkMatch() {
+ function checkMatch() {
   const [card1, card2] = flippedCards;
   if (card1.querySelector(".card-back").textContent === card2.querySelector(".card-back").textContent) {
       card1.classList.add("matched");
@@ -119,7 +112,7 @@ function checkMatch() {
       card2.classList.remove("flipped");
   }
   flippedCards = [];
-}
+} 
 
 function startTimer() {
   timer = setInterval(() => {

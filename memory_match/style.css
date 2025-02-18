@@ -18,8 +18,12 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.category-buttons button:hover {
+  background-color: #ddd;
+}
 .game-container {
   text-align: center;
 }
@@ -67,14 +71,6 @@ body {
 }
 
 .card-back {
-  background-color: #fff; /* White side for emojis */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  visibility: hidden; /* Initially hidden */
-}
-.card-back {
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -89,7 +85,7 @@ body {
 
 .card.matched {
   background-color: #4caf50; /* Green for matched cards */
-  cursor: default;
+  cursor: pointer;
 }
 
 .game-over {
