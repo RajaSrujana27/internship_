@@ -4,7 +4,6 @@ const categories = {
   emojis: ["😀", "😎", "🤩", "😍", "🥳", "🤠", "😜", "😇"],
   animals: ["🐶", "🐱", "🐼", "🦁", "🐧", "🐘", "🦒", "🐠"],
   planets: ["🌍", "🌕", "🪐", "🌞", "🌙", "⭐", "🌌", "🌠"],
-  flags: ["🇺🇸", "🇨🇦", "🇯🇵", "🇫🇷", "🇧🇷", "🇮🇳", "🇦🇺", "🇿🇦"]
 };
 
 let selectedCategory = [];
@@ -88,7 +87,7 @@ function checkMatch() {
 }
 
 
- function checkMatch() {
+/*  function checkMatch() {
   const [card1, card2] = flippedCards;
   if (card1.querySelector(".card-back").textContent === card2.querySelector(".card-back").textContent) {
       card1.classList.add("matched");
@@ -97,9 +96,6 @@ function checkMatch() {
       score += 10;
       scoreDisplay.textContent = score;
       document.getElementById("match-sound").play();
-
-      card1.style.backgroundColor = "#4caf50";
-      card2.style.backgroundColor = "#4caf50";
 
       card1.querySelector(".card-back").style.visibility = "visible";
       card2.querySelector(".card-back").style.visibility = "visible";
@@ -112,8 +108,30 @@ function checkMatch() {
       card2.classList.remove("flipped");
   }
   flippedCards = [];
-} 
-
+}  */
+  function checkMatch() {
+    const [card1, card2] = flippedCards;
+    const emoji1 = card1.querySelector(".card-back").textContent;
+    const emoji2 = card2.querySelector(".card-back").textContent;
+  
+    if (emoji1 === emoji2) {
+        card1.classList.add("matched");
+        card2.classList.add("matched");
+        card1.querySelector(".card-back").textContent = emoji1; // Show emoji on card 1
+        card2.querySelector(".card-back").textContent = emoji2; // Show emoji on card 2
+        score += 10;
+        scoreDisplay.textContent = score;
+        document.getElementById("match-sound").play();
+        
+        if (matchedCards.length === selectedCategory.length * 2) {
+            endGame(true);
+        }
+    } else {
+        card1.classList.remove("flipped");
+        card2.classList.remove("flipped");
+    }
+    flippedCards = [];
+  }
 function startTimer() {
   timer = setInterval(() => {
       timeLeft--;
@@ -138,4 +156,10 @@ restartButton.addEventListener("click", () => {
 
 exitButton.addEventListener("click", () => {
   window.close(); 
+});
+const closeButton = document.getElementById("close-button");
+
+closeButton.addEventListener("click", () => {
+  gameOverScreen.classList.add("hidden"); // Hide the game over screen
+  landingPage.classList.remove("hidden"); // Show the landing page again
 });
